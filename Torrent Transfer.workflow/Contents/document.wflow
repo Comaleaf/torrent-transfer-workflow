@@ -230,7 +230,8 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>for f in "$@"; do
+					<string>
+for f in "$@"; do
 	# Doesn't work without absolute path for some reason
 	# And remember to escape the paths
 	/usr/local/bin/transmission-remote 192.168.1.138 -a "$f"
@@ -353,7 +354,7 @@ done</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>443.000000:413.000000</string>
+				<string>443.000000:593.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -401,7 +402,8 @@ done</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}		repeat with x in input		display notification (x as text) with title "Torrent Transfer"	end repeat		return inputend run</string>
+					<string>on run {input, parameters}
+	-- Only display a notification if there is a torrent	if input is not {""} then		repeat with x in input			display notification (x as text) with title "Torrent Transfer"		end repeat				return input	end ifend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -455,7 +457,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>443.000000:659.000000</string>
+				<string>443.000000:1019.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
